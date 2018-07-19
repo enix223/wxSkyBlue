@@ -1,6 +1,8 @@
 # SkyBlue
 Bluetooth 4.0 debugger building with Weixin mini program
 
+![gh_50f66725c145_258.jpg](gh_50f66725c145_258.jpg)
+
 ## Functions:
 
 1. Scan BLE peripheral nearby
