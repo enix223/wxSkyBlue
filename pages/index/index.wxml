@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="page__hd" style='margin-top: 100px;' wx:if="{{devices.length === 0}}">
+    <view class="page__title" style='text-align: center;'>
+      <image style='display: block; width: 50px; height: 50px; margin: 0 auto;' src="/assets/bluetooth.png"></image>
+      <view style='color: #ccc; display: block; margin-top: 20px; font-size: 16px;'>未搜索到设备</view>
+    </view>
+  </view> 
+  <view class="page__bd page__bd_spacing" style='margin-top: 10px; margin-bottom: 10px;'>
+    <view class="kind-list">
+      <block wx:for="{{devices}}" wx:key="deviceId" wx:for-index="idx">
+        <view class="kind-list__item">
+          <view id="{{item.deviceId}}" class="weui-flex kind-list__item-hd" data-id="{{idx}}" bindtap="selectDevice">
+            <view class="weui-flex__item">{{item.name || '<NO NAME>'}}</view>
+            <view class="kind-list__img">{{item.RSSI}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="page__ft" style='color: #ccc; font-size: 12px;'>
+    <!-- <image src="/assets/app-icon.png" style="width: 84px; height: 19px;"></image>  -->
+    <view>意见反馈</view>
+    <view>{{mail}}</view>
+    <view>{{version}}</view>
+  </view>
+</view>

@@ -1,0 +1,53 @@
+<!--pages/device/session.wxml-->
+<view class="page">
+  <view class="page__bd">
+
+  <!-- Toolbar -->
+  <view class="weui-flex">
+    <view class="weui-flex__item" bindtap='format'>
+      <view class="toolbar__item active">
+        <image class='toolbar__icon' src='/assets/format.png'></image>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap='setNotify'>
+      <view class="toolbar__item {{properties.indicate || properties.notify ? 'active' : 'inactive' }}">
+        <image class='toolbar__icon' src="{{notify ? '/assets/ring.png': '/assets/ring-2.png'}}"></image>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap='read'>
+      <view class="toolbar__item {{properties.read ? 'active' : 'inactive' }}">
+        <image class='toolbar__icon' src='/assets/in.png'></image>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap='write'>
+      <view class="toolbar__item {{properties.write ? 'active' : 'inactive' }}">
+        <image class='toolbar__icon' src='/assets/out.png'></image>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap='timerDidTap'>
+      <view class="toolbar__item {{properties.write ? 'active' : 'inactive' }}">
+        <image class='toolbar__icon' src="{{timerRunning ? '/assets/timer.png': '/assets/timer-2.png'}}"></image>
+      </view>
+    </view>
+  </view>
+  
+  <view class="weui-cells__title" style='margin-top: 20px;'>发送数据</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" style='font-size: 14px;height: 80px;' 
+            bindblur='bindBlur' placeholder="{{placeholder}}" value='{{sendContent}}' />
+        </view>
+      </view>
+    </view>
+    
+    <view class="weui-cells__title">接收的数据</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" maxlength="-1" disabled style='font-size: 12px;height: 100vh;' value='{{content}}' />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

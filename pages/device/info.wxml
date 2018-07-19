@@ -1,0 +1,40 @@
+<!--pages/device/info.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title" style='margin-top: 20px;'>基本信息</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" bindlongtap='copyThis' data-id='name'>
+        <view class="weui-cell__bd">名称</view>
+        <view class="weui-cell__ft">{{device.name || '<NO NAME>'}}</view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title" style='margin-top: 20px;'>广播数据</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" bindlongtap='copyThis' data-id='advertisDataHex'>
+        <view class="weui-cell__bd">HEX</view>
+        <view class="weui-cell__ft">{{device.advertisDataHex || '<NO DATA>'}}</view>
+      </view>
+    </view>
+
+    <block wx:for="{{services}}" wx:key="uuid" wx:for-index="sidx" wx:for-item="service">
+      <view class="weui-cells__title" style='margin-top: 20px;'>{{service.desc}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <block wx:for="{{service.characteristics}}" wx:key="uuid" wx:for-index="cidx">
+          <view class="weui-cell" bindtap='selectCharac' 
+            data-uuid="{{item.uuid}}" data-serviceId="{{service.uuid}}"
+            data-sid="{{sidx}}" data-cid="{{cidx}}"
+          >
+            <view class="weui-cell__bd">{{ item.desc }}</view>
+            <view class="weui-cell__ft">
+              <view wx:if="{{ item.properties.read }}" class="weui-badge" style="margin-left: 5px;">R</view>
+              <view wx:if="{{ item.properties.write }}" class="weui-badge" style="margin-left: 5px;">W</view>
+              <view wx:if="{{ item.properties.notify }}" class="weui-badge" style="margin-left: 5px;">N</view>
+              <view wx:if="{{ item.properties.indicate }}" class="weui-badge" style="margin-left: 5px;">I</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

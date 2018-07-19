@@ -1,0 +1,29 @@
+/* pages/device/session.wxss */
+
+page {
+  height: 100%;
+  margin: 0;
+}
+
+.toolbar__item {
+    padding: 0 10px;
+    text-align: center;
+    height: 3em;
+    line-height: 3em;
+}
+
+.inactive {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.active {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.toolbar__icon {
+  margin-top: 12px; 
+  width: 23px; 
+  height: 23px;
+}
